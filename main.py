@@ -10,9 +10,14 @@ window = pygame.display.set_mode((win_w, win_h))
 
 clock = pygame.time.Clock()
 
+background = pygame.image.load("flat.jpg")
+background = pygame.transform.scale(background, (win_w, win_h))
+
+
 game = True
 while game:
-    window.fill((0, 255, 0))
+    # window.fill((0, 255, 0))
+    window.blit(background, (0, 0))
 
 
     for event in pygame.event.get():
