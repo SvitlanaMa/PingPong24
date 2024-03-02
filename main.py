@@ -31,16 +31,20 @@ class Pers(GameSprite):
 
     def move(self, key_up, key_down):
         k = pygame.key.get_pressed()
-        if k[key_up]:
+        if k[key_down]:
             if self.rect.right <= win_w:
-                self.rect.x += self.speed 
-        elif k[key_down]:
+                self.rect.y += self.speed 
+        elif k[key_up]:
             if self.rect.left >= 0:
-                self.rect.x -= self.speed
-
+                self.rect.y -= self.speed
+        if self.rect.y <= 0:
+            self.rect.y += self.speed
+        elif self.rect.bottom >= 500:
+            self.rect.y -= self.speed
+        
 
 raketka_img = pygame.image.load("Roket.jpg")
-raketka1 = Pers(200, 200, 20, 60, raketka_img, 3)
+raketka1 = Pers(20, 200, 20, 60, raketka_img, 3)
 
 game = True
 while game:
