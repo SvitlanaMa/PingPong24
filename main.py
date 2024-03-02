@@ -46,12 +46,17 @@ class Pers(GameSprite):
 raketka_img = pygame.image.load("Roket.jpg")
 raketka1 = Pers(20, 200, 20, 60, raketka_img, 3)
 
+raketka2_img = pygame.image.load("Roket2.jpg")
+raketka2 = Pers(660, 200, 20, 60, raketka2_img, 3)
+
 game = True
 while game:
     # window.fill((0, 255, 0))
     window.blit(background, (0, 0))
     raketka1.update()
     raketka1.move(pygame.K_w, pygame.K_s)
+    raketka2.update()
+    raketka2.move(pygame.K_DOWN, pygame.K_UP) 
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
