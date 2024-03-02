@@ -46,11 +46,14 @@ class Pers(GameSprite):
 class Ball(GameSprite):
     def __init__(self, x, y, w, h, image, speed):
         super().__init__(x, y, w, h, image)
-        self.speed = speed
-
+        self.speedx = speed
+        self.speedy = speed
     def move(self):
-        self.rect.x += self.speed
-        self.rect.y += self.speed
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
+        if self.rect.bottom > 500:
+            self.speedy = self.speedy*-1   
+        
         
 raketka_img = pygame.image.load("Roket.jpg")
 raketka1 = Pers(20, 200, 20, 60, raketka_img, 3)
